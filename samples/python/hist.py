@@ -36,6 +36,7 @@ def hist_curve(im):
         pts = np.int32(np.column_stack((bins,hist)))
         cv.polylines(h,[pts],False,col)
     y=np.flipud(h)
+    y = y.astype(np.uint8)
     return y
 
 def hist_lines(im):
@@ -49,7 +50,7 @@ def hist_lines(im):
     hist=np.int32(np.around(hist_item))
     for x,y in enumerate(hist):
         cv.line(h,(x,0),(x,y),(255,255,255))
-    y = np.flipud(h)
+    y = np.flipud(h).astype(np.uint8)
     return y
 
 
